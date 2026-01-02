@@ -1,0 +1,126 @@
+/* 页面居中 */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 主容器 */
+.container {
+    width: 460px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 18px rgba(98, 96, 96, 0.2);
+}
+
+/* 标题 */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* 添加任务表单 */
+.task-form {
+    display: flex;
+    gap: 10px;          /* 输入框与按钮间距 */
+    margin-bottom: 25px;
+}
+
+.task-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* 统一按钮样式 */
+.btn {
+    width: 80px;        /* ★ 所有按钮等宽 */
+    padding: 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* 添加按钮（灰色） */
+.add-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.add-btn:hover {
+    background: #5a6268;
+}
+
+/* 列表 */
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 单条任务 */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* 编号 */
+.index {
+    width: 24px;
+    font-weight: bold;
+}
+
+/* 任务文字 */
+.task-text {
+    flex: 1;
+}
+
+/* 已完成 */
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* 按钮组 */
+.buttons {
+    display: flex;
+    gap: 6px;
+}
+
+/* 完成按钮（绿色） */
+.complete-btn {
+    background: #28a745;
+    color: white;
+}
+
+.complete-btn:hover {
+    background: #218838;
+}
+
+/* 已完成按钮 */
+.done-btn {
+    background: #6c757d;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* 删除按钮 */
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的待办事项</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>我的待办事项</h1>
+
+    <!-- 添加任务 -->
+    <form action="/add" method="post" class="task-form">
+      <input type="text" name="title" placeholder="请输入任务内容" required>
+
+        <button type="submit" class="btn add-btn">添加</button>
+    </form>
+
+    <!-- 任务列表 -->
+    <ul class="task-list">
+        {% for task in tasks %}
+        <li class="task-item {% if task[2] %}completed{% endif %}">
+            <!-- 编号 -->
+            <span class="index">{{ loop.index }}.</span>
+
+            <!-- 任务内容 -->
+            <span class="task-text">{{ task[1] }}</span>
+
+            <!-- 操作按钮 -->
+            <div class="buttons">
+                <form action="/toggle/{{ task[0] }}" method="get">
+                    {% if task[2] %}
+                        <button type="button" class="btn done-btn" disabled>
+                            已完成
+                        </button>
+                    {% else %}
+                        <button type="submit" class="btn complete-btn">
+                            完成
+                        </button>
+                    {% endif %}
+                </form>
+
+                <form action="/delete/{{ task[0] }}" method="get">
+                    <button type="submit" class="btn delete-btn">
+                        删除
+                    </button>
+                </form>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
